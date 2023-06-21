@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => 'https://hotstream.turbo-laravel.com',
+    'baseUrl' => 'http://hotstream.turbo-laravel.com',
     'production' => true,
 
     // DocSearch credentials
