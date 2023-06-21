@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => 'https://jigsaw-docs-template.tighten.co',
+    'baseUrl' => 'https://hotstream.turbo-laravel.com',
     'production' => true,
 
     // DocSearch credentials

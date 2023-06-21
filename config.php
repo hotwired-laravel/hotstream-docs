@@ -5,8 +5,8 @@ use Illuminate\Support\Str;
 return [
     'baseUrl' => '',
     'production' => false,
-    'siteName' => 'Docs Starter Template',
-    'siteDescription' => 'Beautiful docs powered by Jigsaw',
+    'siteName' => 'Hotstream Docs',
+    'siteDescription' => 'A Hotwired Application Starter Kit for Laravel',
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => env('DOCSEARCH_KEY'),
