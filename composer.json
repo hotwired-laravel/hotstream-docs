@@ -1,0 +1,23 @@
+{
+    "name": "hotwired-laravel/hotstream-docs",
+    "description": "The Hotstream docs.",
+    "type": "project",
+    "require": {
+        "tightenco/jigsaw": "^1.7",
+        "tightenco/jigsaw-docs-template": "^1.1",
+        "samdark/sitemap": "^2.2.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "HotwiredLaravel\\HotstreamDocs\\": "src/",
+            "App\\Listeners\\": "listeners/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tony Messias",
+            "email": "tonysm@hey.com"
+        }
+    ]
+}
