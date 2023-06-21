@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Hotstream&#039;s profile management features are accessed by the user using the top-right user profile navigation dropdown menu. Hotstream scaffolds views and actions that allow the user to update their name, email address, and, optionally, their profile photo.">
+
+        <meta property="og:site_name" content="Hotstream Docs"/>
+        <meta property="og:title" content="Profile Management | Hotstream Docs"/>
+        <meta property="og:description" content="Hotstream&#039;s profile management features are accessed by the user using the top-right user profile navigation dropdown menu. Hotstream scaffolds views and actions that allow the user to update their name, email address, and, optionally, their profile photo."/>
+        <meta property="og:url" content="https://hotstream.turbo-laravel.com/docs/1.x/features/profile-management"/>
+        <meta property="og:image" content="/assets/img/logo.png"/>
+        <meta property="og:type" content="website"/>
+
+        <meta name="twitter:image:alt" content="Hotstream Docs">
+        <meta name="twitter:card" content="summary_large_image">
+
+        
+        <title>Hotstream Docs | Profile Management</title>
+
+        <link rel="home" href="https://hotstream.turbo-laravel.com">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <meta name="description" content="A Hotwired Application Starter Kit for Laravel">
+        <meta name="theme-color" content="#ffffff">
+
+        
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=d8d178ed65bf53444d0d6ac161df7a3b">
+
+            </head>
+
+    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
+        <header class="flex items-center h-24 py-4 mb-8 bg-white border-b shadow" role="banner">
+            <div class="container flex items-center px-4 mx-auto max-w-8xl lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Hotstream Docs home" class="inline-flex items-center">
+                        <svg class="h-8 mr-3 md:h-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="dark:hidden" d="M48 24C48 30.3652 45.4714 36.4697 40.9706 40.9706C36.4697 45.4714 30.3652 48 24 48C18.4726 48 13.1419 46.0933 8.88706 42.6441C9.42805 42.2511 17.2368 36.5796 21.2191 33.7413C25.8385 30.4493 35.0964 23.9797 35.0964 23.9797H27.8214L39.2755 5.48888C39.8623 5.9731 40.4281 6.48694 40.9706 7.02944C45.4714 11.5303 48 17.6348 48 24Z" fill="#3784ff"/>
+                            <path class="dark:hidden" d="M39.2207 5.44377C34.9483 1.93911 29.5741 0 24 0C17.6348 0 11.5303 2.52856 7.02944 7.02944C2.52856 11.5303 0 17.6348 0 24C0 30.3652 2.52856 36.4697 7.02944 40.9706C7.61856 41.5597 8.23515 42.115 8.8762 42.6353L20.4075 24.0204H13.1325C13.1325 24.0204 22.3904 17.5513 27.0099 14.2588C30.8073 11.5524 38.0854 6.26835 39.2207 5.44377Z" fill="#3784ff"/>
+                            <path class="hidden dark:inline" d="M48 24C48 30.3652 45.4714 36.4697 40.9706 40.9706C36.4697 45.4714 30.3652 48 24 48C18.4726 48 13.1419 46.0933 8.88706 42.6441C9.42805 42.2511 17.2368 36.5796 21.2191 33.7413C25.8385 30.4493 35.0964 23.9797 35.0964 23.9797H27.8214L39.2755 5.48888C39.8623 5.9731 40.4281 6.48694 40.9706 7.02944C45.4714 11.5303 48 17.6348 48 24Z" fill="#ffe801"/>
+                            <path class="hidden dark:inline" d="M39.2207 5.44377C34.9483 1.93911 29.5741 0 24 0C17.6348 0 11.5303 2.52856 7.02944 7.02944C2.52856 11.5303 0 17.6348 0 24C0 30.3652 2.52856 36.4697 7.02944 40.9706C7.61856 41.5597 8.23515 42.115 8.8762 42.6353L20.4075 24.0204H13.1325C13.1325 24.0204 22.3904 17.5513 27.0099 14.2588C30.8073 11.5524 38.0854 6.26835 39.2207 5.44377Z" fill="#ffe801"/>
+                        </svg>
+
+                        <h1 class="pr-4 my-0 text-lg font-semibold text-blue-900 md:text-2xl hover:text-blue-600">Hotstream Docs</h1>
+                    </a>
+                </div>
+
+                <div class="flex items-center justify-end flex-1 text-right md:pl-10">
+                                    </div>
+            </div>
+
+                <button class="flex justify-center items-center bg-blue-500 border border-blue-500 h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+        </header>
+
+        <main role="main" class="flex-auto w-full">
+            <section class="container px-6 py-4 mx-auto max-w-8xl md:px-8">
+    <div class="flex flex-col lg:flex-row">
+        <nav id="js-nav-menu" class="hidden nav-menu lg:block">
+            <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/getting-started"
+            class="lvl0   nav-menu__item hover:text-blue-500"
+        >
+            Getting Started
+        </a>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/installation"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/concept-overview"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Concept Overview
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/building-your-app"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Building Your App
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="nav-menu__item text-gray-600">Features</p>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/authentication"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Authentication
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/registration"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Registration
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/profile-management"
+            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+        >
+            Profile Management
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/update-password"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Update Password
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/confirm-password"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Confirm Password
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/two-factor-authentication"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Two Factor Authentication
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/browser-sessions"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Browser Sessions
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/api"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            API
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/teams"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Teams
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+    </ul>
+        </nav>
+
+        <div class="w-full pb-16 break-words docs-content DocSearch-content lg:w-3/5 lg:pl-4" v-pre>
+            <h1>Profile Management</h1>
+
+<p>Hotstream's profile management features are accessed by the user using the top-right user profile navigation dropdown menu. Hotstream scaffolds views and actions that allow the user to update their name, email address, and, optionally, their profile photo.</p>
+
+<p><img src="/assets/img/edit-profile-screen.png" alt="Screenshot of Profile Management" /></p>
+
+<h2>Actions</h2>
+
+<p>As typical of most Hotstream features, the logic executed to satisfy profile update requests can be found in an action class within your application. Specifically, the <code>App\Actions\Fortify\UpdateUserProfileInformation</code> class will be invoked when the user updates their profile. This action is responsible for validating the input and updating the user's profile information.</p>
+
+<p>Therefore, any customizations you wish to make to your application's management of this information should be made in this class. When invoked, the action receives the currently authenticated <code>$user</code> and an array of <code>$input</code> that contains all of the input from the incoming request, including the updated profile photo if applicable.</p>
+
+<p>:::tip Managing Additional Information</p>
+
+<p>If you need to manage additional information about the user, you are not restricted to just amending the provided "Profile Information" card. You can add as many additional UI elements and forms as you need within the user's profile dashboard.
+:::</p>
+
+<h2>Views</h2>
+
+<p>The user's edit profile information form is displayed using the <code>resources/views/profile/edit.blade.php</code> Blade template.</p>
+
+<p>The template will receive the entire authenticated user object so that you can add additional fields to the form as necessary. Any additional inputs added to the forms will be included in the <code>$input</code> array that is passed to your <code>UpdateUserProfileInformation</code> action.</p>
+
+<h2>Profile Photos</h2>
+
+<h3>Enabling Profile Photos</h3>
+
+<p>If you wish to allow users to upload custom profile photos, you must enable the feature in your application's <code>config/hotstream.php</code> configuration file. To enable the feature, simply uncomment the corresponding feature entry from the <code>features</code> configuration item within this file:</p>
+
+<pre><code class="language-php">use HotwiredLaravel\Hotstream\Features;
+
+'features' =&gt; [
+    Features::profilePhotos(),
+    Features::api(),
+    Features::teams(),
+],
+</code></pre>
+
+<p>After enabling the profile photo feature, you should execute the <code>storage:link</code> Artisan command. This command will create a symbolic link in your application's <code>public</code> directory that will allow your user's images to be served by your application. For information regarding this command, please consult the <a href="https://laravel.com/docs/filesystem#the-public-disk">Laravel filesystem documentation</a>.:</p>
+
+<pre><code class="language-bash">php artisan storage:link
+</code></pre>
+
+<p>If you're using <a href="https://github.com/laravel/sail">Laravel Sail</a>, remember to run this command inside the Sail container.</p>
+
+<h3>Managing Profile Photos</h3>
+
+<p>Hotstream's profile photo functionality is supported by the <code>HotwiredLaravel\Hotstream\HasProfilePhoto</code> trait that is automatically attached to your <code>App\Models\User</code> class during Hotstream's installation.</p>
+
+<p>This trait contains methods such as <code>updateProfilePhoto</code>, <code>getProfilePhotoUrlAttribute</code>, <code>defaultProfilePhotoUrl</code>, and <code>profilePhotoDisk</code> which may all be overwritten by your own <code>App\Models\User</code> class if you need to customize their behavior. You are encouraged to read through the source code of this trait so that you have a full understanding of the features it is providing to your application.</p>
+
+<p>The <code>updateProfilePhoto</code> method is the primary method used to store profile photos and is called by your application's <code>App\Actions\Hotstream\UpdateUserPicture</code> action class, which is in turn called by the <code>App\Actions\Fortify\UpdateUserProfileInformation</code> action class. The uploading feature has its own action because you may want handle the profile image separately than the user upload.</p>
+
+<p>:::tip Laravel Vapor</p>
+
+<p>By default, the <code>s3</code> disk will be used to store profile photos when your Hotstream application is running within <a href="https://vapor.laravel.com">Laravel Vapor</a>.
+:::</p>
+
+<h2>Account Deletion</h2>
+
+<p>As part of the profile management, Hotstream includes a screen that allows the user to delete their application account. When the user chooses to delete their account, the <code>App\Actions\Hotstream\DeleteUser</code> action class will be invoked. You are free to customize your application's account deletion logic within this class.</p>
+
+<p>The account deletion feature may be disabled by removing the feature from your application's <code>config/hotstream.php</code> configuration file:</p>
+
+<pre><code class="language-php">use HotwiredLaravel\Hotstream\Features;
+
+'features' =&gt; [
+    Features::termsAndPrivacyPolicy(),
+    Features::profilePhotos(),
+    Features::api(),
+    Features::teams(),
+    // Features::accountDeletion(),
+],
+</code></pre>
+        </div>
+    </div>
+</section>
+        </main>
+
+        <script src="/assets/build/js/main.js?id=3f6adb86212aa7bd86b17ce395834e0f"></script>
+
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+
+        <footer class="py-4 mt-12 text-sm text-center bg-white" role="contentinfo">
+            <ul class="flex flex-col justify-center md:flex-row">
+                <li>
+                    Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten">Jigsaw</a>
+                    and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>

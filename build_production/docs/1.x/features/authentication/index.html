@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Hotstream automatically scaffolds the login, two-factor login, registration, password reset, and email verification features for your project, allowing you to start building the features you care about the most instead of worrying about the nitty-gritty details of user authentication.">
+
+        <meta property="og:site_name" content="Hotstream Docs"/>
+        <meta property="og:title" content="Authentication | Hotstream Docs"/>
+        <meta property="og:description" content="Hotstream automatically scaffolds the login, two-factor login, registration, password reset, and email verification features for your project, allowing you to start building the features you care about the most instead of worrying about the nitty-gritty details of user authentication."/>
+        <meta property="og:url" content="https://hotstream.turbo-laravel.com/docs/1.x/features/authentication"/>
+        <meta property="og:image" content="/assets/img/logo.png"/>
+        <meta property="og:type" content="website"/>
+
+        <meta name="twitter:image:alt" content="Hotstream Docs">
+        <meta name="twitter:card" content="summary_large_image">
+
+        
+        <title>Hotstream Docs | Authentication</title>
+
+        <link rel="home" href="https://hotstream.turbo-laravel.com">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <meta name="description" content="A Hotwired Application Starter Kit for Laravel">
+        <meta name="theme-color" content="#ffffff">
+
+        
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=d8d178ed65bf53444d0d6ac161df7a3b">
+
+            </head>
+
+    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
+        <header class="flex items-center h-24 py-4 mb-8 bg-white border-b shadow" role="banner">
+            <div class="container flex items-center px-4 mx-auto max-w-8xl lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Hotstream Docs home" class="inline-flex items-center">
+                        <svg class="h-8 mr-3 md:h-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="dark:hidden" d="M48 24C48 30.3652 45.4714 36.4697 40.9706 40.9706C36.4697 45.4714 30.3652 48 24 48C18.4726 48 13.1419 46.0933 8.88706 42.6441C9.42805 42.2511 17.2368 36.5796 21.2191 33.7413C25.8385 30.4493 35.0964 23.9797 35.0964 23.9797H27.8214L39.2755 5.48888C39.8623 5.9731 40.4281 6.48694 40.9706 7.02944C45.4714 11.5303 48 17.6348 48 24Z" fill="#3784ff"/>
+                            <path class="dark:hidden" d="M39.2207 5.44377C34.9483 1.93911 29.5741 0 24 0C17.6348 0 11.5303 2.52856 7.02944 7.02944C2.52856 11.5303 0 17.6348 0 24C0 30.3652 2.52856 36.4697 7.02944 40.9706C7.61856 41.5597 8.23515 42.115 8.8762 42.6353L20.4075 24.0204H13.1325C13.1325 24.0204 22.3904 17.5513 27.0099 14.2588C30.8073 11.5524 38.0854 6.26835 39.2207 5.44377Z" fill="#3784ff"/>
+                            <path class="hidden dark:inline" d="M48 24C48 30.3652 45.4714 36.4697 40.9706 40.9706C36.4697 45.4714 30.3652 48 24 48C18.4726 48 13.1419 46.0933 8.88706 42.6441C9.42805 42.2511 17.2368 36.5796 21.2191 33.7413C25.8385 30.4493 35.0964 23.9797 35.0964 23.9797H27.8214L39.2755 5.48888C39.8623 5.9731 40.4281 6.48694 40.9706 7.02944C45.4714 11.5303 48 17.6348 48 24Z" fill="#ffe801"/>
+                            <path class="hidden dark:inline" d="M39.2207 5.44377C34.9483 1.93911 29.5741 0 24 0C17.6348 0 11.5303 2.52856 7.02944 7.02944C2.52856 11.5303 0 17.6348 0 24C0 30.3652 2.52856 36.4697 7.02944 40.9706C7.61856 41.5597 8.23515 42.115 8.8762 42.6353L20.4075 24.0204H13.1325C13.1325 24.0204 22.3904 17.5513 27.0099 14.2588C30.8073 11.5524 38.0854 6.26835 39.2207 5.44377Z" fill="#ffe801"/>
+                        </svg>
+
+                        <h1 class="pr-4 my-0 text-lg font-semibold text-blue-900 md:text-2xl hover:text-blue-600">Hotstream Docs</h1>
+                    </a>
+                </div>
+
+                <div class="flex items-center justify-end flex-1 text-right md:pl-10">
+                                    </div>
+            </div>
+
+                <button class="flex justify-center items-center bg-blue-500 border border-blue-500 h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+        </header>
+
+        <main role="main" class="flex-auto w-full">
+            <section class="container px-6 py-4 mx-auto max-w-8xl md:px-8">
+    <div class="flex flex-col lg:flex-row">
+        <nav id="js-nav-menu" class="hidden nav-menu lg:block">
+            <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/getting-started"
+            class="lvl0   nav-menu__item hover:text-blue-500"
+        >
+            Getting Started
+        </a>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/installation"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/concept-overview"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Concept Overview
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/building-your-app"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Building Your App
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="nav-menu__item text-gray-600">Features</p>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/authentication"
+            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+        >
+            Authentication
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/registration"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Registration
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/profile-management"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Profile Management
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/update-password"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Update Password
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/confirm-password"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Confirm Password
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/two-factor-authentication"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Two Factor Authentication
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/browser-sessions"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Browser Sessions
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/api"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            API
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/teams"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Teams
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+    </ul>
+        </nav>
+
+        <div class="w-full pb-16 break-words docs-content DocSearch-content lg:w-3/5 lg:pl-4" v-pre>
+            <h1>Authentication</h1>
+
+<p>Hotstream automatically scaffolds the login, two-factor login, registration, password reset, and email verification features for your project, allowing you to start building the features you care about the most instead of worrying about the nitty-gritty details of user authentication.</p>
+
+<p><img src="/assets/img/login-screen.png" alt="Login Screen" /></p>
+
+<h2>Laravel Fortify</h2>
+
+<p>Under the hood, the authentication portions of Jetstream are powered by <a href="https://github.com/laravel/fortify">Laravel Fortify</a>, which is a frontend agnostic authentication backend for Laravel. Essentially, Fortify defines the routes and controllers for implementing the application's authentication features while the Hotstream UI makes requests to those routes.</p>
+
+<p>When Hotstream is installed, the <code>config/fortify.php</code> configuration file is installed into your application. Within this configuration file, you can customize various aspects of Fortify's behavior, such as the authentication guard that should be used, where users should be redirected after authentication, and more.</p>
+
+<p>Within the <code>config/fortify.php</code> configuration file, you can also disable entire features of Fortify, such as the ability to update profile information or passwords.</p>
+
+<h2>Views</h2>
+
+<p>The login view is displayed using the <code>resources/views/auth/login.blade.php</code> Blade template. The directories that contain these views also contain other authentication-related views for your application.</p>
+
+<h3>Customizing The Authentication Views</h3>
+
+<p>Hotstream will automatically render proper views for your application's login and other authentication screens. However, sometimes you may wish to customize how a particular authentication view is rendered or the data that is received by the view.</p>
+
+<p>All of the authentication view's rendering logic may be customized using the appropriate methods available via the <code>Laravel\Fortify\Fortify</code> class. Typically, you should call this class' methods from the <code>boot</code> method of your application's <code>App\Providers\HotstreamServiceProvider</code> class:</p>
+
+<pre><code class="language-php">use Laravel\Fortify\Fortify;
+
+/**
+ * Bootstrap any application services.
+ */
+public function boot(): void
+{
+    Fortify::loginView(function () {
+        return view('auth.login');
+    });
+}
+</code></pre>
+
+<h2>Customizing The Authentication Process</h2>
+
+<h3>Customizing User Authentication</h3>
+
+<p>Sometimes, you may wish to have full customization over how user credentials are authenticated and how users are retrieved from your application's database. Thankfully, Hotstream allows you to easily accomplish this using the <code>Fortify::authenticateUsing</code> method.</p>
+
+<p>The <code>authenticateUsing</code> method accepts a closure that receives the incoming HTTP request. The closure is responsible for validating the login credentials attached to the request and returning the associated user instance. If the credentials are invalid or no user can be found, <code>null</code> or <code>false</code> should be returned by the closure. Typically, this method should be called from the boot method of your <code>HotstreamServiceProvider</code>:</p>
+
+<pre><code class="language-php">use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Fortify\Fortify;
+
+/**
+ * Bootstrap any application services.
+ */
+public function boot(): void
+{
+    // ...
+
+    Fortify::authenticateUsing(function (Request $request) {
+        $user = User::where('email', $request-&gt;email)-&gt;first();
+
+        if ($user &amp;&amp;
+            Hash::check($request-&gt;password, $user-&gt;password)) {
+            return $user;
+        }
+    });
+}
+</code></pre>
+
+<p>If you prefer to encapsulate your custom authentication process within a class instead of a closure, you may pass a PHP "callable" array to the <code>authenticateUsing</code> method:</p>
+
+<pre><code class="language-php">use App\Actions\AuthenticateLoginAttempt;
+use Laravel\Fortify\Fortify;
+
+Fortify::authenticateUsing([new AuthenticateLoginAttempt, '__invoke']);
+</code></pre>
+
+<h3>Customizing The Authentication Pipeline</h3>
+
+<p>Laravel Fortify, which is Hotstream's underlying authentication library, authenticates login requests through a pipeline of invokable classes.</p>
+
+<p>If you would like, you may define a custom pipeline of classes that login requests should be piped through. Each class should have an <code>__invoke</code> method which receives the incoming <code>Illuminate\Http\Request</code> instance and, like middleware, a <code>$next</code> variable that is invoked in order to pass the request to the next class in the pipeline.</p>
+
+<p>To define your custom pipeline, you may use the <code>Fortify::authenticateThrough</code> method. This method accepts a closure which should return the array of classes to pipe the login request through. Typically, this method should be called from the boot method of your <code>App\Providers\HotstreamServiceProvider</code> class.</p>
+
+<p>The example below contains the default pipeline definition that you may use as a starting point when making your own modifications:</p>
+
+<pre><code class="language-php">use Laravel\Fortify\Actions\AttemptToAuthenticate;
+use Laravel\Fortify\Actions\EnsureLoginIsNotThrottled;
+use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
+use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
+use Laravel\Fortify\Fortify;
+use Illuminate\Http\Request;
+
+Fortify::authenticateThrough(function (Request $request) {
+    return array_filter([
+            config('fortify.limiters.login') ? null : EnsureLoginIsNotThrottled::class,
+            RedirectIfTwoFactorAuthenticatable::class,
+            AttemptToAuthenticate::class,
+            PrepareAuthenticatedSession::class,
+    ]);
+});
+</code></pre>
+
+<h2>Password Reset</h2>
+
+<p>In addition to scaffolding views and actions related to login / authentication, Hotstream also scaffolds the resources needed for a user to reset their password in case it is forgotten. Of course, this feature utilizes Laravel's underlying <a href="https://laravel.com/docs/passwords">password reset features</a>.</p>
+
+<p>:::tip Laravel Mail</p>
+
+<p>Before using the password reset feature, you should ensure that your Laravel application is configured to <a href="https://laravel.com/docs/mail">send emails</a>. Otherwise, Laravel will not be able to send password reset links to your application's users.
+:::</p>
+
+<h3>Actions</h3>
+
+<p>As typical of most Hotstream features, the logic executed to satisfy password reset requests can be found in an action class within your application. Remember, actions are granular classes that are responsible for performing a single task related to a Hotstream or Fortify feature.</p>
+
+<p>Specifically, the <code>App\Actions\Fortify\ResetUserPassword</code> class will be invoked when a user resets their password. This action is responsible for validating the user's new password and updating the password on the user instance. Therefore, any customizations you wish to make to user password reset logic should be made in this class. The action receives an array of <code>$input</code> that contains all of the input from the incoming request.</p>
+
+<h4>Password Validation Rules</h4>
+
+<p>The <code>App\Actions\Fortify\CreateNewUser</code>, <code>App\Actions\Fortify\ResetUserPassword</code>, and <code>App\Actions\Fortify\UpdateUserPassword</code> actions all utilize the <code>App\Actions\Fortify\PasswordValidationRules</code> trait.</p>
+
+<p>As you may have noticed, the <code>App\Actions\Fortify\PasswordValidationRules</code> trait utilizes a custom <code>Laravel\Fortify\Rules\Password</code> validation rule object. This object allows you to easily customize the password requirements for your application. By default, the rule requires a password that is at least eight characters in length. However, you may use the following methods to customize the password's requirements:</p>
+
+<pre><code class="language-php">use Laravel\Fortify\Rules\Password;
+
+// Require at least 10 characters...
+(new Password)-&gt;length(10)
+
+// Require at least one uppercase character...
+(new Password)-&gt;requireUppercase()
+
+// Require at least one numeric character...
+(new Password)-&gt;requireNumeric()
+
+// Require at least one special character...
+(new Password)-&gt;requireSpecialCharacter()
+</code></pre>
+
+<p>Of course, these methods may be chained to define the password validation rules for your application:</p>
+
+<pre><code class="language-php">(new Password)-&gt;length(10)-&gt;requireSpecialCharacter()
+</code></pre>
+
+<h3>Views</h3>
+
+<p>Hotstream's password reset feature is implemented using two screens: a screen where the user can request a password reset link and a screen that actually allows the user to reset their password.</p>
+
+<h4>Password Reset Link Request</h4>
+
+<p>The password reset link request view is displayed using the <code>resources/views/auth/forgot-password.blade.php</code> Blade template.</p>
+
+<h4>Reset Password</h4>
+
+<p>The password reset view is displayed using the <code>resources/views/auth/reset-password.blade.php</code> Blade template.</p>
+        </div>
+    </div>
+</section>
+        </main>
+
+        <script src="/assets/build/js/main.js?id=3f6adb86212aa7bd86b17ce395834e0f"></script>
+
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+
+        <footer class="py-4 mt-12 text-sm text-center bg-white" role="contentinfo">
+            <ul class="flex flex-col justify-center md:flex-row">
+                <li>
+                    Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten">Jigsaw</a>
+                    and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>

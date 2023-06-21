@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Hotstream&#039;s architecture follows the same architecture as Laravel Jetstream, so it&#039;s a little different than other Laravel application starter kits such as Laravel Breeze.">
+
+        <meta property="og:site_name" content="Hotstream Docs"/>
+        <meta property="og:title" content="Concept Overview | Hotstream Docs"/>
+        <meta property="og:description" content="Hotstream&#039;s architecture follows the same architecture as Laravel Jetstream, so it&#039;s a little different than other Laravel application starter kits such as Laravel Breeze."/>
+        <meta property="og:url" content="https://hotstream.turbo-laravel.com/docs/1.x/concept-overview"/>
+        <meta property="og:image" content="/assets/img/logo.png"/>
+        <meta property="og:type" content="website"/>
+
+        <meta name="twitter:image:alt" content="Hotstream Docs">
+        <meta name="twitter:card" content="summary_large_image">
+
+        
+        <title>Hotstream Docs | Concept Overview</title>
+
+        <link rel="home" href="https://hotstream.turbo-laravel.com">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <meta name="description" content="A Hotwired Application Starter Kit for Laravel">
+        <meta name="theme-color" content="#ffffff">
+
+        
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=d8d178ed65bf53444d0d6ac161df7a3b">
+
+            </head>
+
+    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
+        <header class="flex items-center h-24 py-4 mb-8 bg-white border-b shadow" role="banner">
+            <div class="container flex items-center px-4 mx-auto max-w-8xl lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Hotstream Docs home" class="inline-flex items-center">
+                        <svg class="h-8 mr-3 md:h-10" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="dark:hidden" d="M48 24C48 30.3652 45.4714 36.4697 40.9706 40.9706C36.4697 45.4714 30.3652 48 24 48C18.4726 48 13.1419 46.0933 8.88706 42.6441C9.42805 42.2511 17.2368 36.5796 21.2191 33.7413C25.8385 30.4493 35.0964 23.9797 35.0964 23.9797H27.8214L39.2755 5.48888C39.8623 5.9731 40.4281 6.48694 40.9706 7.02944C45.4714 11.5303 48 17.6348 48 24Z" fill="#3784ff"/>
+                            <path class="dark:hidden" d="M39.2207 5.44377C34.9483 1.93911 29.5741 0 24 0C17.6348 0 11.5303 2.52856 7.02944 7.02944C2.52856 11.5303 0 17.6348 0 24C0 30.3652 2.52856 36.4697 7.02944 40.9706C7.61856 41.5597 8.23515 42.115 8.8762 42.6353L20.4075 24.0204H13.1325C13.1325 24.0204 22.3904 17.5513 27.0099 14.2588C30.8073 11.5524 38.0854 6.26835 39.2207 5.44377Z" fill="#3784ff"/>
+                            <path class="hidden dark:inline" d="M48 24C48 30.3652 45.4714 36.4697 40.9706 40.9706C36.4697 45.4714 30.3652 48 24 48C18.4726 48 13.1419 46.0933 8.88706 42.6441C9.42805 42.2511 17.2368 36.5796 21.2191 33.7413C25.8385 30.4493 35.0964 23.9797 35.0964 23.9797H27.8214L39.2755 5.48888C39.8623 5.9731 40.4281 6.48694 40.9706 7.02944C45.4714 11.5303 48 17.6348 48 24Z" fill="#ffe801"/>
+                            <path class="hidden dark:inline" d="M39.2207 5.44377C34.9483 1.93911 29.5741 0 24 0C17.6348 0 11.5303 2.52856 7.02944 7.02944C2.52856 11.5303 0 17.6348 0 24C0 30.3652 2.52856 36.4697 7.02944 40.9706C7.61856 41.5597 8.23515 42.115 8.8762 42.6353L20.4075 24.0204H13.1325C13.1325 24.0204 22.3904 17.5513 27.0099 14.2588C30.8073 11.5524 38.0854 6.26835 39.2207 5.44377Z" fill="#ffe801"/>
+                        </svg>
+
+                        <h1 class="pr-4 my-0 text-lg font-semibold text-blue-900 md:text-2xl hover:text-blue-600">Hotstream Docs</h1>
+                    </a>
+                </div>
+
+                <div class="flex items-center justify-end flex-1 text-right md:pl-10">
+                                    </div>
+            </div>
+
+                <button class="flex justify-center items-center bg-blue-500 border border-blue-500 h-10 mr-4 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+        </header>
+
+        <main role="main" class="flex-auto w-full">
+            <section class="container px-6 py-4 mx-auto max-w-8xl md:px-8">
+    <div class="flex flex-col lg:flex-row">
+        <nav id="js-nav-menu" class="hidden nav-menu lg:block">
+            <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/getting-started"
+            class="lvl0 lvl0-active  nav-menu__item hover:text-blue-500"
+        >
+            Getting Started
+        </a>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/installation"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Installation
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/concept-overview"
+            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+        >
+            Concept Overview
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/building-your-app"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Building Your App
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <p class="nav-menu__item text-gray-600">Features</p>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/authentication"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Authentication
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/registration"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Registration
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/profile-management"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Profile Management
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/update-password"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Update Password
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/confirm-password"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Confirm Password
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/two-factor-authentication"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Two Factor Authentication
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/browser-sessions"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Browser Sessions
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/api"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            API
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/1.x/features/teams"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Teams
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+    </ul>
+        </nav>
+
+        <div class="w-full pb-16 break-words docs-content DocSearch-content lg:w-3/5 lg:pl-4" v-pre>
+            <h1>Concept Overview</h1>
+
+<p>Hotstream's architecture follows the same architecture as <a href="https://jetstream.laravel.com/3.x/concept-overview.html">Laravel Jetstream</a>, so it's a little different than other Laravel application starter kits such as <a href="https://github.com/laravel/breeze">Laravel Breeze</a>. In this documentation, we'll cover some of the high-level concepts that will help you understand how Hotstream is constructed.</p>
+
+<h2>Laravel Fortify</h2>
+
+<p>Under the hood, the authentication portions of Hotstream are powered by <a href="https://github.com/laravel/fortify">Laravel Fortify</a>, which is a frontend agnostic, "headless" authentication backend for Laravel.</p>
+
+<p>Fortify register the routes and controllers needed to implement all of Hotstream's authentication features, including login, registration, password reset, email verification, and more. After installing Fortify, you may run the <code>route:list</code> Artisan command to see the routes that Fortify has registered.</p>
+
+<p>Since Fortify does not provide its own user interface, it is meant to be paired with your own user interface which makes requests to the routes it registeres. Hotstream is our first-party implementation of a user interface built on top of the Fortify authentication backend.</p>
+
+<h4>Fortify Configuration</h4>
+
+<p>When Hotstream is installed, a <code>config/fortify.php</code> configuration file is installed into your application. Whitin this configuration file, you can customize various aspects of Fortify's behavior, such as the authentication guard that should be used, where users should be redirected after authentication, and more.</p>
+
+<h2>Actions</h2>
+
+<p>In contrast to <a href="https://laravel.com/docs/10.x/starter-kits">Laravel Breeze</a>, Hotstream does not publish controllers or routes to your application. Instead, Hotstream's functionality is customized via "Action" classes. During the installation process, actions are published to your application's <code>app/Actions</code> directory.</p>
+
+<p>Action classes typically perform a single action and correspond to a single Hotstream or Fortify feature, such as creating a team or deleting a user. You are free to customize these classes if you would like to tweak the backend behavior of Hotstream. Each of the relevant actions published by Hotstream will be discussed within the feature's corresponding documentation</p>
+
+<h2>Views and Pages</h2>
+
+<p>During installation, Hotstream will publish a variety of views and classes to your application. Views will be published to your application's <code>resources/views</code> directory.</p>
+
+<p>The views published by Hotstream contain every feature supported by Hotstream and you are free to customize them as needed. Think of Hostream as a starting point for your application. Once you have installed Hostream, you are free to customize anything you like.</p>
+
+<p>Perhaps the biggest difference between Hotstream and Jetstream is the fact that in Hotstream we ship with fully dedicated pages for most things. In Jetstream, you have multiple forms and panels on a single page.</p>
+
+<p>The decision to have fully dedicated pages in Hotstream is not arbitrary. It comes from the mobile side. On mobile, when opening screens and forms, we don't often have multiple forms on the same screen. Instead, it's more common to show each individual form on its own screen or native modal.</p>
+
+<p>This is not a <em>requirement</em> for Hotwire. Quite the opposite, instead. With Hotwire, you can decompose a screen that is composed of different sections using Turbo Frames. Then, use Turbo Streams to update multiple parts of the screen whenever the user interacts with the app.</p>
+
+<p>Then, on the mobile side, you can hide the Turbo Frames, and instead render links to those sections and forms.</p>
+
+<h2>Layouts</h2>
+
+<h3>The Application Layout</h3>
+
+<p>After installing, your Hotstream application will contain two "layouts". First, Hostream creates an application layout that is used to define the layout of your application's pages that require authentication, such as your application's dashboard. This layout is defined at <code>resources/views/layouts/app.blade.php</code> and rendered by the <code>App\View\Components\AppLayout</code> class.</p>
+
+<h3>The Guest Layout</h3>
+
+<p>In addition to the application layout, Hotstream creates a "guest" layout that is used to define the layout of Hotstream's authentication-related pages, such as your application's login, registration, and password reset pages.</p>
+
+<h2>Tailwind</h2>
+
+<p>During installation, Hotstream will scaffold your application's integration with the Tailwind CSS framework using the <a href="https://github.com/tonysm/tailwindcss-laravel">TailwindCSS Laravel</a> package. You can customize your default styles in the <code>tailwind.config.js</code> file. This file will be used to build your application's compiled CSS output. You are free to modify these files as needed for your application. Since we're using the Tailwind CLI standalone tool, we can only require Tailwind's first-party commands.</p>
+
+<pre><code class="language-bash"># Download the Tailwind CLI...
+php artisan tailwindcss:download
+
+# Start a watcher to compile your CSS styles as you're working on the views...
+php artisan tailwindcss:watch
+
+# Compile your CSS styles for production...
+php artisan tailwindcss:build --prod
+</code></pre>
+
+<h2>Importmap</h2>
+
+<p>Modern browsers are already capable of loading ECMAScript modules (ESM) using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap">importmaps</a>. Hotstream ships with the <a href="https://github.com/tonysm/importmap-laravel">Importmap Laravel</a> package installed and configured, which enables us to have our front-end setup that doesn't rely on Node.js or NPM.</p>
+
+<p>When using importmaps, your JavaScript dependencies will be mapped in the <code>routes/importmap.php</code> file. Hotstream already has the <code>&lt;x-importmap-tags /&gt;</code> on your layout files.</p>
+
+<pre><code class="language-bash"># To download an external lib...
+php artisan importmap:pin alpinejs
+
+# To build your JavaScript files for production...
+php artisan importmap:optimize
+
+# To run a security audit on your external JavaScript libs...
+php artisan importmap:audit
+
+# To check for outdated dependencies...
+php artisan importmap:outdated
+</code></pre>
+
+<h2>Stimulus</h2>
+
+<p>Hotwired applications tend to follow a minimal JavaScript approach. <a href="https://turbo.hotwired.dev/handbook/drive">Turbo Drive</a>, <a href="https://turbo.hotwired.dev/handbook/frames">Turbo Frames</a>, and <a href="https://turbo.hotwired.dev/handbook/streams">Turbo Streams</a> gets you really far until you need to write a single line of JavaScript. When we do need JavaScript, we can use <a href="https://stimulus.hotwired.dev/">Stimulus</a>.</p>
+
+<p>Hotstream ships with <a href="https://github.com/hotwired-laravel/stimulus-laravel">Stimulus Laravel</a> configured. The package makes it easy to use this modest framework with import-mapped (and also for JavaScript-bundled apps).</p>
+
+<p>You can find the Stimulus setup in your application's <code>resources/js/libs/stimulus.js</code> file. You can find your Stimulus controllers at <code>resources/js/controllers</code>. Hotstream ships with a few Stimulus controllers you can use as examples.</p>
+
+<p>Since we rely on <a href="https://github.com/tonysm/importmap-laravel">Importmap Laravel</a>, your controllers are automatically registered so you don't have to worry about that. In the <code>resources/js/controllers/index.js</code> file you can find where the automatic registration of controllers is done.</p>
+
+<pre><code class="language-bash"># Generate a Stimulus controller...
+php artisan stimulus:make hello
+</code></pre>
+
+<p>To attach the controller to an HTML tag, you can use the <code>data-controller</code> attribute. Read the <a href="https://stimulus.hotwired.dev/">Stimulus Handbook</a> for more details on Stimulus itself.</p>
+
+<h2>Turbo</h2>
+
+<p>Hotstream comes with <a href="https://github.com/hotwired-laravel/turbo-laravel/">Turbo Laravel</a> integrated. Most of the techniques in Turbo.js are back-end agnostic. It's around Turbo Streams that a tighter integration with Laravel comes to play.</p>
+
+<p>It's highly recommended to read the <a href="https://turbo-laravel.com/">Turbo Laravel documentation</a> to know what's available.</p>
+        </div>
+    </div>
+</section>
+        </main>
+
+        <script src="/assets/build/js/main.js?id=3f6adb86212aa7bd86b17ce395834e0f"></script>
+
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+
+        <footer class="py-4 mt-12 text-sm text-center bg-white" role="contentinfo">
+            <ul class="flex flex-col justify-center md:flex-row">
+                <li>
+                    Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten">Jigsaw</a>
+                    and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>
